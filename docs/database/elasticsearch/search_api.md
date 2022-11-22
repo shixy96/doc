@@ -22,18 +22,18 @@ Search api
 
   - Term query：A or B
 
-  http://localhost:9200/index/_search?q=costomer_first_name:(Eddie Bi)
+  `http://localhost:9200/index/_search?q=costomer_first_name:(Eddie Bi)`
 
   - Phrase query：A and B
 
-  http://localhost:9200/index/_search?q=costomer_first_name:"Eddie Bi" ~2
+  `http://localhost:9200/index/_search?q=costomer_first_name:"Eddie Bi" ~2`
 
   搜索 first name 为 Eddie 的客户
 
   
 
 - #### Requset Body
-
+```
   curl -XGET/POST
 
 ​	   "http://localhost:9200/index/_search"
@@ -41,7 +41,7 @@ Search api
 ​		-H 'Content-Type: application/json'
 
 ​		-d 
-
+```
 ```json
 {
 	"from": 10,
