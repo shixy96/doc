@@ -10,7 +10,7 @@ export default {
   themeConfig: {
     nav: [
       { text: 'Web', link: '/web/js/' },
-      { text: '工具', link: '/util/git' },
+      { text: '工具', link: '/util/command/git' },
       { text: '测试', link: '/test/' },
       {
         text: '数据库',
@@ -21,24 +21,35 @@ export default {
       },
     ],
     sidebar: {
-      // '/web/': [{}],
-      // '/util/': [],
-      // '/test/': [],
-      // '/database/mysql/': [],
-      // '/database/elasticsearch/': [
-      //   {
-      //     text: 'elasticsearch',
-      //     items: [
-      //       {text: '基础', link: '/database/elasticsearch/'},
-      //       {text: '倒排索引', link: '/database/elasticsearch/倒排索引'},
-      //       {text: '文档CRUD', link: '/database/elasticsearch/文档CRUD'},
-      //       { text: 'Mapping', link: '/database/elasticsearch/Mapping' },
-      //       { text: 'Search', link: '/database/elasticsearch/search' },
-      //       { text: 'Search Api', link: '/database/elasticsearch/search_api' },
-      //     ],
-      //   },
-      // ],
+      '/web/': [],
+      '/util/': [
+        {
+          text: '命令工具',
+          items: [
+            { text: 'git', link: '/util/command/git' },
+            { text: 'linux', link: '/util/command/linux' },
+            { text: 'mysql', link: '/util/command/mysql' },
+            { text: 'nginx', link: '/util/command/nginx' },
+            { text: 'node', link: '/util/command/node' },
+          ],
+        },
+      ],
+      '/test/': [],
+      '/database/mysql/': [],
+      '/database/elasticsearch/': [
+        {
+          text: 'elasticsearch',
+          items: [
+            { text: '基础', link: '/database/elasticsearch/' },
+            { text: '倒排索引', link: '/database/elasticsearch/倒排索引' },
+            { text: '文档CRUD', link: '/database/elasticsearch/文档CRUD' },
+            { text: 'Mapping', link: '/database/elasticsearch/Mapping' },
+            { text: 'Search', link: '/database/elasticsearch/search' },
+            { text: 'Search Api', link: '/database/elasticsearch/search_api' },
+          ],
+        },
+      ],
     },
-    smoothScroll: true
+    smoothScroll: true,
   },
 }

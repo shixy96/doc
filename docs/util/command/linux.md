@@ -1,16 +1,18 @@
 # Linux 命令
 
+## scp
 ```bash
 # 上传本地文件到远程
 scp [-i identity_file] -r <source-file> <user-name>@<ip>:<remote-dir>
 ```
 
+## base64
 ```bash
 # base64
 echo -n center_$1 | base64
 ```
 
-### envsubst
+## envsubst
 
 ```txt
 # template.txt
