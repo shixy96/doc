@@ -6,6 +6,8 @@
 ```bash
 # 筛选带 shixy 的本地分支并删除
 git branch | grep -e shixy | xargs git branch -D
+# 删除不包含 master 的分支
+git branch | grep -v master | xargs git branch -D
 ```
 
 ### 批量删除远程分支

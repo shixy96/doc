@@ -4,3 +4,26 @@
 # 上传本地文件到远程
 scp [-i identity_file] -r <source-file> <user-name>@<ip>:<remote-dir>
 ```
+
+```bash
+# base64
+echo -n center_$1 | base64
+```
+
+### envsubst
+
+```txt
+# template.txt
+hello, ${DIR} is your directory
+```
+
+```bash
+# dir.sh
+export DIR=$1
+envsubst '{{$DIR}}' < ./template.txt > ../conf.d/$2.txt
+```
+
+```bash
+./dir.sh /Usr/shixy/demo result
+# => hello, /Usr/shixy/demo is your directory
+```
