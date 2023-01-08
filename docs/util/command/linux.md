@@ -13,6 +13,7 @@ echo -n center_$1 | base64
 ```
 
 ## envsubst
+文件模版
 
 ```txt
 # template.txt

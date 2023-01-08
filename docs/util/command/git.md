@@ -19,8 +19,24 @@ git fetch -p origin
 git branch -r --merged | grep -e shixy | sed 's/origin\///g' | xargs git push origin --delete
 ```
 
-## 分离分支
-### 分离目录到新的分支
+## 代码分离并保留 commit
 ```bash
 git subtree split -P <name-of-folder> -b <name-of-new-branch>
+```
+eg.
+```
+.
+├── subProject
+├── ...
+└── package.json
+```
+```sh
+# 分离原项目目标文件夹到新分支
+git subtree split -P [subProject] -b [x-shixy-subtree]
+# waiting...
+git checkout [x-shixy-subtree]
+
+# github 创建新项目 subProject
+git remote add subProject git@github.com:shixy96/subProject.git
+git push --set-upstream subProject [x-shixy-subtree]
 ```

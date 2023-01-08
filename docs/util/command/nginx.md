@@ -3,6 +3,7 @@
 ```sh
 # systemctl 启动
 sudo systemctl start nginx
+service nginx restart
 
 # 查看配置路径
 nginx -t
