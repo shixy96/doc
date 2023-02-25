@@ -6,6 +6,9 @@ export default {
   markdown: {
     lineNumbers: false,
   },
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.jpg' }]
+  ],
   lastUpdated: '最近更新时间',
   themeConfig: {
     nav: [

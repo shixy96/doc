@@ -1,0 +1,1 @@
+import{_ as s,c as a,o as n,b as o}from"./app.468f540d.js";const C=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"front-end/js/promise.md","lastUpdated":1673183115000}'),e={name:"front-end/js/promise.md"},p=o("",5),l=[p];function r(t,c,A,y,F,i){return n(),a("div",null,l)}const d=s(e,[["render",r]]);export{C as __pageData,d as default};
