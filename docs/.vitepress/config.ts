@@ -69,18 +69,24 @@ export default {
               link: '/server/java/2-GarBage collect',
             },
             {
-              text: '锁',
+              text: '并发编程',
               items: [
-                { text: 'lock', link: '/server/java/锁' },
-                { text: 'reentrantlock', link: '/server/java/reentrantlock' },
-              ],
-            },
-            {
-              text: '线程',
-              items: [
-                { text: 'threadlocal', link: '/server/java/threadlocal' },
-                { text: '线程池', link: '/server/java/线程池' },
-              ],
+                {text: '基础', link: '/server/java/concurrent/基础'},
+                {
+                  text: '锁',
+                  items: [
+                    { text: 'lock', link: '/server/java/锁' },
+                    { text: 'reentrantlock', link: '/server/java/reentrantlock' },
+                  ],
+                },
+                {
+                  text: '线程',
+                  items: [
+                    { text: 'threadlocal', link: '/server/java/threadlocal' },
+                    { text: '线程池', link: '/server/java/线程池' },
+                  ],
+                },  
+              ]
             },
             { text: 'compare', link: '/server/java/compare' },
           ],
