@@ -1,1 +1,0 @@
-import{_ as s,c as n,o as a,b as l}from"./app.468f540d.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"server/java/compare.md","lastUpdated":1673183115000}'),p={name:"server/java/compare.md"},o=l("",6),e=[o];function t(c,r,D,y,C,A){return a(),n("div",null,e)}const d=s(p,[["render",t]]);export{i as __pageData,d as default};

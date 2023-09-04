@@ -25,6 +25,7 @@ export default {
         {
           text: 'js',
           items: [
+            { text: 'script', link: '/front-end/js/script' },
             { text: 'BOM', link: '/front-end/js/BOM' },
             { text: '对象', link: '/front-end/js/对象' },
             { text: 'Promise', link: '/front-end/js/promise' },
