@@ -1,1 +1,0 @@
-import{_ as l,c as e,o as i,b as p}from"./app.2904d35e.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"front-end/js/rxjs.md","lastUpdated":1673183115000}'),t={name:"front-end/js/rxjs.md"},r=p("",17),a=[r];function s(o,u,n,_,b,c){return i(),e("div",null,a)}const f=l(t,[["render",s]]);export{m as __pageData,f as default};

@@ -12,7 +12,7 @@ export default {
   lastUpdated: '最近更新时间',
   themeConfig: {
     nav: [
-      { text: '前端', link: '/front-end/js/index' },
+      { text: '前端', link: '/front-end/index' },
       { text: '后端', link: '/server/database/mysql/index' },
       { text: '设计模式', link: '/设计模式/index' },
       {
