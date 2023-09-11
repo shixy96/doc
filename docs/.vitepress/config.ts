@@ -21,7 +21,7 @@ export default {
       },
     ],
     sidebar: {
-      '/front-end/js/': [
+      '/front-end/': [
         {
           text: 'js',
           items: [

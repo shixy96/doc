@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as n}from"./app.ea60f0b7.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"front-end/code_snap/js/index.md","lastUpdated":1673183115000}'),a={name:"front-end/code_snap/js/index.md"};function o(s,r,d,c,p,_){return n(),t("div")}const m=e(a,[["render",o]]);export{f as __pageData,m as default};

@@ -1,3 +1,10 @@
+# 相应系统的作用与实现
+
+- 当读取操作发生时，将副作用函数收集到桶中
+- 当设置操作发生时，从桶中取出副作用函数并执行
+
+## 注册副作用函数的机制
+
 ### 收集依赖
 
 [Reflect.get(target, propertyKey, receiver)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/get)
