@@ -27,8 +27,9 @@
 如果之前已经为当前主机和端口建立过连接，会重用该连接；
 如果没有，则进行 DNS 寻址（DNS Lookup，本地 DNS 缓存 -> 远程 DNS 服务器）拿到 ip 地址。
 ip:port 与服务器进行连接，并进行 `ssl` 加密。
-#### [preload/prefetch/preconnect](https://juejin.cn/post/6915204591730556935)
-- preload 用于提前加载当前页面的资源（不执行），提升了资源加载的优先级。
+#### [preload/modulepreload/prefetch/preconnect](https://juejin.cn/post/6915204591730556935)
+- preload/modulepreload 用于提前加载当前页面的资源（不执行），提升了资源加载的优先级。
+  - preload 只是下载文件放在缓存中，modulepreload 会下载、解析、编译
 - prefetch 则是用于加载未来（比如下一个页面）会用到的资源，并且告诉浏览器在空闲的时候去下载，它会将下载资源的优先级降到最低。
 - preconnect/dns-preconnect 预连接（并行连接）能有效减少建立连接带来的性能损耗。
 
@@ -62,6 +63,14 @@ js引擎将js代码解析成 `AST` 后，根据 `AST` 生成用于虚拟机的�
 2. 其次，计算权值：`!important` `style attribute` `id` `class, pseudo-class, attribute` `element`。
 
 3. 最后，根据在文档中出现的顺序排序，后出现的优先级高
+
+#### 层叠上下文
+- 层叠上下文可以包含在其他层叠上下文中，并且一起创建一个层叠上下文的层级。
+- 每个层叠上下文都完全独立于它的兄弟元素：当处理层叠时只考虑子元素。
+- 每个层叠上下文都是自包含的：当一个元素的内容发生层叠后，该元素将被作为整体在父级层叠上下文中按顺序进行层叠。
+#### [层叠层](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Cascade_layers)
+如果存在层叠层，样式按层叠层进行排序。普通声明的层顺序是从创建的第一个到最后一个，然后是未分层的普通样式。对于重要的样式，这个顺序是反转的，但保持未分层的重要样式优先权最低。
+如果存在嵌套层叠层，优先权顺序基于嵌套层创建的顺序。层中的非嵌套样式优先于嵌套的普通样式，对于重要样式则相反。
 
 ##### CSS Object Model ([CSSOM](https://developer.mozilla.org/zh-CN/docs/Web/API/CSS_Object_Model))
 cssom 存放在 document.styleSheets 中（getComputedStyle() 重复了以上计算过程）。
