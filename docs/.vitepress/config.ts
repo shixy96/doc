@@ -150,5 +150,6 @@ export default {
       ],
     },
     smoothScroll: true,
+    socialLinks: [{ icon: "github", link: "https://github.com/shixy96" }], // 可以连接到 github
   },
 }
