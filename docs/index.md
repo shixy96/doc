@@ -1,3 +1,3 @@
 # Shixy's Study Note
 
-[关于我](./README.md)
+[about me](./README.md)
