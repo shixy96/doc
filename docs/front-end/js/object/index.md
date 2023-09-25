@@ -63,4 +63,62 @@ Object.getOwnPropertyDescriptor()
   1. 不能新增属性
   2. 所有属性都变成不可配置的
   3. 对于数据属性 writable 变成 false
-  
+
+### 对象合并
+
+- Object.assign
+  以 set 的方式赋值属性（PutValue）。如果原型对象上的属性类型是存取器类型，会调用其 set；如果是数据类型，会在目标对象上创建新的属性。
+  ```js
+  function assign(dest, src) {
+    for (let key in src) {
+      if (!src.hasOwnProperty(key)) continue
+      dest[key] = src[key]
+    }
+  }
+  ```
+
+- 对象展开
+  以 defineProperty 的方式在目标对象上定义属性
+  ```js
+  function spread(dest, src) {
+    for (let key in src) {
+      if (!src.hasOwnProperty(key)) continue
+      Object.defineProperty(dest, key, {
+        value: src[key],
+        writable: true,
+        enumerable: true,
+        configurable: true,
+      })
+    }
+  }
+  ```
+
+## 遍历对象
+
+### 遍历对象自身数据 
+`[[EnumerableOwnProperties]]` 只会遍历出对象自身的、可枚举的、***以字符串为键***的属性
+  - Object.keys
+  - Object.values
+  - Object.entries
+
+Object.getOwnPropertyNames 可以用来获取`[[OwnPropertyKeys]]`中的字符串键；
+Object.getOwnPropertySymbols 可以用来获取 `[[OwnPropertyKeys]]`中的 Symbol 键；
+`Reflect.ownKeys` 返回 `[[OwnPropertyKeys]]` 所有内容；
+Object.getOwnPropertyDescriptors 返回 `[[OwnPropertyKeys]]` 的所有内容的属性描述符
+### 遍历对象以及原型链的数据
+`for ... in`: 遍历可枚举的字符串键属性
+### 完全自定义遍历数据
+`for ... of`，本质上是迭代器。
+> 迭代器主要包含一个 next 函数，返回格式是 { value?: any; done?: boolean}
+- 生成器函数返回
+- 对象定义的 `Symbol.iterator` 是一个生成器
+  > 之所以字符串、数组、Map、Set 都可以在 for...of 中使用，就是因为它们在原型上都定义了 [Symbol.iterator] 属性。
+- 迭代器模拟，对象 `Symbol.iterator` 返回类迭代器对象
+
+## 创建对象
+如果一个函数对象存在 `[[Construct]]` 的内部方法，则它可以作为构造函数。
+`[[Construct]]` 的大致实现：
+1. 创建一个对象 P，原型链只想 Constructor.prototype
+2. 生成一个上下文，this 指向刚创建的 P，new.target 指向 Constructor
+>  new.target 只能在函数中使用，用来判断当前函数是否是通过 new 来调用的
+3. 执行 Constructor 代码，如果返回一个对象，那么就作为构造函数的结果，否则将 P 作为构造函数的结果
