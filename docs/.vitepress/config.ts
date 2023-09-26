@@ -10,7 +10,7 @@ export default {
   lastUpdated: '最近更新时间',
   themeConfig: {
     nav: [
-      { text: '前端', link: '/front-end/index' },
+      { text: '前端', link: '/frontend/index' },
       { text: '后端', link: '/server/database/mysql/index' },
       { text: '设计模式', link: '/设计模式/index' },
       {
@@ -19,39 +19,39 @@ export default {
       },
     ],
     sidebar: {
-      '/front-end/': [
+      '/frontend/': [
         {
           text: 'web',
           items: [
-            { text: 'overview', link: '/front-end/index' },
+            { text: 'overview', link: '/frontend/index' },
             {
               text: 'js',
               items: [
-                { text: 'script', link: '/front-end/js/script' },
-                { text: 'BOM', link: '/front-end/js/BOM' },
+                { text: 'script', link: '/frontend/js/script' },
+                { text: 'BOM', link: '/frontend/js/BOM' },
                 {
                   text: '对象',
-                  link: '/front-end/js/object/index',
+                  link: '/frontend/js/object/index',
                   items: [
-                    { text: '转换', link: '/front-end/js/object/transform' },
+                    { text: '转换', link: '/frontend/js/object/transform' },
                   ],
                 },
-                { text: 'Promise', link: '/front-end/js/promise' },
-                { text: '函数式编程', link: '/front-end/js/函数式编程' },
+                { text: 'Promise', link: '/frontend/js/promise' },
+                { text: '函数式编程', link: '/frontend/js/函数式编程' },
                 {
                   text: 'vue',
                   items: [
                     {
                       text: '组件化实践',
-                      link: '/front-end/js/vue/组件化实践',
+                      link: '/frontend/js/vue/组件化实践',
                     },
                     {
                       text: 'reactivity',
-                      link: '/front-end/js/vue/reactivity',
+                      link: '/frontend/js/vue/reactivity',
                     },
                   ],
                 },
-                { text: 'rxjs', link: '/front-end/js/rxjs' },
+                { text: 'rxjs', link: '/frontend/js/rxjs' },
               ],
             },
           ],
