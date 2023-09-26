@@ -1,4 +1,4 @@
-# Object
+# 对象
 
 ## 函数
 函数是一种特殊的对象，内部必须存在一个 `[[Call]]` 方法。
@@ -109,7 +109,7 @@ Object.getOwnPropertyDescriptors 返回 `[[OwnPropertyKeys]]` 的所有内容的
 `for ... in`: 遍历可枚举的字符串键属性
 ### 完全自定义遍历数据
 `for ... of`，本质上是迭代器。
-> 迭代器主要包含一个 next 函数，返回格式是 { value?: any; done?: boolean}
+> 迭代器主要包含一个 next 函数，返回格式是 `{ value?: any; done?: boolean}`
 - 生成器函数返回
 - 对象定义的 `Symbol.iterator` 是一个生成器
   > 之所以字符串、数组、Map、Set 都可以在 for...of 中使用，就是因为它们在原型上都定义了 [Symbol.iterator] 属性。

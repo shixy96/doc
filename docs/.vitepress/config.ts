@@ -21,27 +21,39 @@ export default {
     sidebar: {
       '/front-end/': [
         {
-          text: 'js',
+          text: 'web',
           items: [
-            { text: 'script', link: '/front-end/js/script' },
-            { text: 'BOM', link: '/front-end/js/BOM' },
+            { text: 'overview', link: '/front-end/index' },
             {
-              text: '对象',
+              text: 'js',
               items: [
-                { text: '原型', link: '/front-end/js/object/index' },
-                { text: '转换', link: '/front-end/js/object/transform' },
+                { text: 'script', link: '/front-end/js/script' },
+                { text: 'BOM', link: '/front-end/js/BOM' },
+                {
+                  text: '对象',
+                  link: '/front-end/js/object/index',
+                  items: [
+                    { text: '转换', link: '/front-end/js/object/transform' },
+                  ],
+                },
+                { text: 'Promise', link: '/front-end/js/promise' },
+                { text: '函数式编程', link: '/front-end/js/函数式编程' },
+                {
+                  text: 'vue',
+                  items: [
+                    {
+                      text: '组件化实践',
+                      link: '/front-end/js/vue/组件化实践',
+                    },
+                    {
+                      text: 'reactivity',
+                      link: '/front-end/js/vue/reactivity',
+                    },
+                  ],
+                },
+                { text: 'rxjs', link: '/front-end/js/rxjs' },
               ],
             },
-            { text: 'Promise', link: '/front-end/js/promise' },
-            { text: '函数式编程', link: '/front-end/js/函数式编程' },
-            {
-              text: 'vue',
-              items: [
-                { text: '组件化实践', link: '/front-end/js/vue/组件化实践' },
-                { text: 'reactivity', link: '/front-end/js/vue/reactivity' },
-              ],
-            },
-            { text: 'rxjs', link: '/front-end/js/rxjs' },
           ],
         },
       ],
@@ -157,6 +169,6 @@ export default {
       ],
     },
     smoothScroll: true,
-    socialLinks: [{ icon: 'github', link: 'https://github.com/shixy96' }], // 可以连接到 github
+    socialLinks: [{ icon: 'github', link: 'https://github.com/shixy96' }],
   },
 }
