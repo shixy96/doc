@@ -1,4 +1,4 @@
-### CSS选择器以及优先级
+# CSS选择器以及优先级
 
 参考网址： 
 - [阮一峰 - CSS选择器笔记](http://www.ruanyifeng.com/blog/2009/03/css_selectors.html)

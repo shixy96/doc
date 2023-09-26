@@ -1,14 +1,13 @@
 # Web
 
-## 浏览器从 Url 到可交互页面
 [from-url-to-interactive](https://alistapart.com/article/from-url-to-interactive/)
-### HSTS
+## HSTS
 如果是 http 请求，检查 [HSTS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) 列表(HTTP Strict Transport Security) 中是否存在该 host，存在则跳转 https 请求
 
-### service worker
+## service worker
 检查处理 service worker
 
-### 查找缓存
+## 查找缓存
 [HTTP缓存](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching)
   1. 强缓存
   一般是由 [`Cache-Control`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) 控制，一下为常用设置
@@ -23,24 +22,24 @@
   - [**Last-Modifed/If-Modified-Since**](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Last-Modified): 当资源过期时，发现响应头具有`Last-Modified`声明，则再次向服务器请求时带上头 `if-modified-since`(值是`Last-Modified`) ，表示请求时间（单位秒）。服务器收到请求后发现有 `if-modified-since` 则与被请求资源的 `Last-Modified` 进行比较决定返回200或304。
   - [**Etag/If-None-Match**](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Etag): 当资源过期时，浏览器发现响应头里有`Etag`，则再次像服务器请求时带上请求头`if-none-match`(值是`Etag`)。服务器收到请求进行比对，决定返回200或304。
 
-### 检查、建立连接
+## 检查、建立连接
 如果之前已经为当前主机和端口建立过连接，会重用该连接；
 如果没有，则进行 DNS 寻址（DNS Lookup，本地 DNS 缓存 -> 远程 DNS 服务器）拿到 ip 地址。
 ip:port 与服务器进行连接，并进行 `ssl` 加密。
-#### [preload/modulepreload/prefetch/preconnect](https://juejin.cn/post/6915204591730556935)
+### [preload/modulepreload/prefetch/preconnect](https://juejin.cn/post/6915204591730556935)
 - preload/modulepreload 用于提前加载当前页面的资源（不执行），提升了资源加载的优先级。
   - preload 只是下载文件放在缓存中，modulepreload 会下载、解析、编译
 - prefetch 则是用于加载未来（比如下一个页面）会用到的资源，并且告诉浏览器在空闲的时候去下载，它会将下载资源的优先级降到最低。
 - preconnect/dns-preconnect 预连接（并行连接）能有效减少建立连接带来的性能损耗。
 
-### HTML解析
+## HTML解析
 > html -> dom树 -> DOMContentLoaded Event
 
 当遇到 script 标签时，html parser 唤起 scripting engine，等待js引擎执行完成后继续解析。
 
 当遇到 css 时，html parser 唤起 css parser，等待 css parser 解析完成后继续解析。
 
-#### script
+### script
 js引擎将js代码解析成 `AST` 后，根据 `AST` 生成用于虚拟机的字节码。
 
 生成AST的过程是JavaScript引擎中比较简单的方面之一，但它也可能很慢。在用户开始与网站交互之前，JavaScript引擎必须解析并构建整个 bundle 的语法树。大部分代码对于初始页面加载来说可能是不必要的，有些甚至可能根本无法执行。
@@ -48,7 +47,7 @@ js引擎将js代码解析成 `AST` 后，根据 `AST` 生成用于虚拟机的�
 幸运的是，我们的编译器工程师发明了各种各样的技巧来加快速度。首先，一些引擎在后台线程上解析代码，从而释放主UI线程用于其他计算。其次，现代引擎将通过使用一种称为延迟解析或延迟编译的技术，尽可能长时间地延迟内存中语法树的创建。它的工作原理是这样的：如果引擎看到一个可能在一段时间内不会执行的函数定义，它将对函数体执行快速的“一次性”解析。这种一次性解析会发现任何可能潜伏在代码中的语法错误，但不会生成AST。稍后，当第一次调用该函数时，将再次解析代码。这一次，引擎将生成执行所需的完整AST和字节码。一些JavaScript引擎会尝试缓存生成的字节码，通过 JIT 提高效率（通过将热代码编译成机器码）。
 
 
-#### css
+### css
 > css -> 
 
 当文档中的 css 全部解析完成后，就可以进行样式计算了，计算完成后，所有的尺寸值都会变成三种值：**`auto`**、**百分比**、**像素值**
@@ -64,7 +63,7 @@ js引擎将js代码解析成 `AST` 后，根据 `AST` 生成用于虚拟机的�
 
 3. 最后，根据在文档中出现的顺序排序，后出现的优先级高
 
-#### 层叠上下文
+### 层叠上下文
 - 层叠上下文可以包含在其他层叠上下文中，并且一起创建一个层叠上下文的层级。
 - 每个层叠上下文都完全独立于它的兄弟元素：当处理层叠时只考虑子元素。
 - 每个层叠上下文都是自包含的：当一个元素的内容发生层叠后，该元素将被作为整体在父级层叠上下文中按顺序进行层叠。
@@ -72,11 +71,11 @@ js引擎将js代码解析成 `AST` 后，根据 `AST` 生成用于虚拟机的�
 如果存在层叠层，样式按层叠层进行排序。普通声明的层顺序是从创建的第一个到最后一个，然后是未分层的普通样式。对于重要的样式，这个顺序是反转的，但保持未分层的重要样式优先权最低。
 如果存在嵌套层叠层，优先权顺序基于嵌套层创建的顺序。层中的非嵌套样式优先于嵌套的普通样式，对于重要样式则相反。
 
-##### CSS Object Model ([CSSOM](https://developer.mozilla.org/zh-CN/docs/Web/API/CSS_Object_Model))
+#### CSS Object Model ([CSSOM](https://developer.mozilla.org/zh-CN/docs/Web/API/CSS_Object_Model))
 cssom 存放在 document.styleSheets 中（getComputedStyle() 重复了以上计算过程）。
 > CSS2.1 重新定义了 computed values 为布局前的值，used values 布局后的值。布局前与布局后的区别是，width 或者 height 的 百分比可以代表元素的宽度，在布局后会被像素值替换。
 
-##### LAYOUT
+#### LAYOUT
 在 box tree 中确定每个 box 的大小和位置，为 painting 做准备（尺寸值中所有为 auto 或者百分比的值确定为像素值）。
 
 几个重要的概念：
@@ -85,9 +84,9 @@ cssom 存放在 document.styleSheets 中（getComputedStyle() 重复了以上计
 - 內联方向(Inline direction)
 - 块方向(Block direction)
 
-##### [PAINTING](https://www.w3.org/TR/CSS22/zindex.html#painting-order)
+#### [PAINTING](https://www.w3.org/TR/CSS22/zindex.html#painting-order)
 > background -> border -> content
-##### COMPOSITION
+#### COMPOSITION
 创建图层，将 painting 得到的 bitmap 渲染到屏幕上。
 尽可能将动画渲染在单独的图层上，这样只需要重复 compose 的步骤而不用回到 painting 的步骤
 

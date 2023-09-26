@@ -28,7 +28,7 @@ export default {
               text: 'js',
               items: [
                 { text: 'script', link: '/frontend/js/script' },
-                { text: 'BOM', link: '/frontend/js/BOM' },
+                { text: '作用域', link: '/frontend/js/scope' },
                 {
                   text: '对象',
                   link: '/frontend/js/object/index',
@@ -38,6 +38,7 @@ export default {
                 },
                 { text: 'Promise', link: '/frontend/js/promise' },
                 { text: '函数式编程', link: '/frontend/js/函数式编程' },
+                { text: 'BOM', link: '/frontend/js/BOM' },
                 {
                   text: 'vue',
                   items: [
@@ -54,6 +55,11 @@ export default {
                 { text: 'rxjs', link: '/frontend/js/rxjs' },
               ],
             },
+            { text: 'css', items: [
+              { text: '选择器', link: '/frontend/css/index' },
+              { text: '流布局', link: '/frontend/css/flow' },
+              { text: 'margin', link: '/frontend/css/margin' },
+            ] },
           ],
         },
       ],

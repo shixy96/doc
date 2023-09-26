@@ -6,8 +6,8 @@
 
 ### 形成场景：
 
-#### 相邻的兄弟元素
-#### 没有内容将父元素和后代元素分开
+- 相邻的兄弟元素
+- 没有内容将父元素和后代元素分开
   - 没有设定border、padding、inline内容，也没用创建[区块格式化上下文](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context) 或 [间隙](https://developer.mozilla.org/zh-CN/docs/Web/CSS/clear) 来分隔块级元素的上边距与其内一个或多个子代快元素的上边距
   - 没有设定 border、padding、inline内容、height、min-height 来分隔块级元素的下边距与其内一个或多个子代块元素的下边距
 
