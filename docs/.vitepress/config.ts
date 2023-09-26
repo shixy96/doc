@@ -6,9 +6,7 @@ export default {
   markdown: {
     lineNumbers: false,
   },
-  head: [
-    ['link', { rel: 'icon', href: '/favicon.jpg' }]
-  ],
+  head: [['link', { rel: 'icon', href: '/favicon.jpg' }]],
   lastUpdated: '最近更新时间',
   themeConfig: {
     nav: [
@@ -27,7 +25,13 @@ export default {
           items: [
             { text: 'script', link: '/front-end/js/script' },
             { text: 'BOM', link: '/front-end/js/BOM' },
-            { text: '对象', link: '/front-end/js/对象' },
+            {
+              text: '对象',
+              items: [
+                { text: '原型', link: '/front-end/js/object/index' },
+                { text: '转换', link: '/front-end/js/object/transform' },
+              ],
+            },
             { text: 'Promise', link: '/front-end/js/promise' },
             { text: '函数式编程', link: '/front-end/js/函数式编程' },
             {
@@ -75,12 +79,15 @@ export default {
             {
               text: '并发编程',
               items: [
-                {text: '基础', link: '/server/java/concurrent/基础'},
+                { text: '基础', link: '/server/java/concurrent/基础' },
                 {
                   text: '锁',
                   items: [
                     { text: 'lock', link: '/server/java/锁' },
-                    { text: 'reentrantlock', link: '/server/java/reentrantlock' },
+                    {
+                      text: 'reentrantlock',
+                      link: '/server/java/reentrantlock',
+                    },
                   ],
                 },
                 {
@@ -89,8 +96,8 @@ export default {
                     { text: 'threadlocal', link: '/server/java/threadlocal' },
                     { text: '线程池', link: '/server/java/线程池' },
                   ],
-                },  
-              ]
+                },
+              ],
             },
             { text: 'compare', link: '/server/java/compare' },
           ],
@@ -150,6 +157,6 @@ export default {
       ],
     },
     smoothScroll: true,
-    socialLinks: [{ icon: "github", link: "https://github.com/shixy96" }], // 可以连接到 github
+    socialLinks: [{ icon: 'github', link: 'https://github.com/shixy96' }], // 可以连接到 github
   },
 }
