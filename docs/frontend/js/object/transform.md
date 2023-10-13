@@ -30,8 +30,8 @@
 2. 判断运算符前后的两个变量（ primitive 类型）中有没有 string 类型，如果有则属于字符串拼接，把变量传入 *ToString*；如果都不是 string，就转换为数字，调用 `To Numeric`
 
 
-## 相等
-### IsLooselyEqual
+## [相等](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+### [IsLooselyEqual](https://tc39.es/ecma262/#sec-islooselyequal)
 可以理解为就是符号 `==`。
 - 判断类型是否相同，相同则到 `IsStrictlyEqual`
 - 变量都为 null、undefined、document.all 中的一个，返回 true
@@ -45,10 +45,11 @@
 2. Boolean 在比较的时候，总会转成 Number
 3. Symbol 在比较的时候总会返回 false
 
-### IsStrictlyEqual
+### [IsStrictlyEqual](https://tc39.es/ecma262/#sec-isstrictlyequal)
 可以理解为就是符号 `===`
 `Array.prototype.indexOf`
-
-### SameValueZero
-支持 NaN 的判断
+### [SameValue](https://tc39.es/ecma262/#sec-samevalue)
+Object.is()
+### [SameValueZero](https://tc39.es/ecma262/#sec-samevaluezero)
+支持 NaN 的判断，被许多内置运算使用
 `Array.prototype.includes`

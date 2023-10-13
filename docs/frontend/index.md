@@ -48,7 +48,6 @@ js引擎将js代码解析成 `AST` 后，根据 `AST` 生成用于虚拟机的�
 
 
 ### css
-> css -> 
 
 当文档中的 css 全部解析完成后，就可以进行样式计算了，计算完成后，所有的尺寸值都会变成三种值：**`auto`**、**百分比**、**像素值**
 
@@ -70,6 +69,13 @@ js引擎将js代码解析成 `AST` 后，根据 `AST` 生成用于虚拟机的�
 #### [层叠层](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Cascade_layers)
 如果存在层叠层，样式按层叠层进行排序。普通声明的层顺序是从创建的第一个到最后一个，然后是未分层的普通样式。对于重要的样式，这个顺序是反转的，但保持未分层的重要样式优先权最低。
 如果存在嵌套层叠层，优先权顺序基于嵌套层创建的顺序。层中的非嵌套样式优先于嵌套的普通样式，对于重要样式则相反。
+
+浏览器渲染步骤：
+1. **Style**: Calculate the styles that apply to the elements.
+2. **Layout**: Generate the geometry and position for each element.
+3. **Paint**: Fill out the pixels for each element into [layers](https://web.dev/animations-overview/#layers).
+4. **Composite**: Draw the layers to the screen.
+
 
 #### CSS Object Model ([CSSOM](https://developer.mozilla.org/zh-CN/docs/Web/API/CSS_Object_Model))
 cssom 存放在 document.styleSheets 中（getComputedStyle() 重复了以上计算过程）。
