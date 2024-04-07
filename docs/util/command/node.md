@@ -1,7 +1,7 @@
 # Node 工具
 
 ## npm-check package 升级
-[https://www.npmjs.com/package/npm-check](npm-check)
+[npm-check](https://www.npmjs.com/package/npm-check)
 ```bash
 npm-check -u
 ```
