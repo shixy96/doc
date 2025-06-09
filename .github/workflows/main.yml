@@ -21,10 +21,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: use Node.js 16.20.0
+      - name: use Node.js 20.19.0
         uses: actions/setup-node@v1
         with:
-          node-version: 16.20.0
+          node-version: 20.19.0
       - name: npm install
         run: npm install
       - name: npm build
