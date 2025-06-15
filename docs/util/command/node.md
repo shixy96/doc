@@ -32,3 +32,8 @@ pnpm store prune
 ```bash
 corepack prepare pnpm@7.1.9 --activate
 ```
+
+## 获取环境信息
+```bash
+npx envinfo --system --npmPackages '{vite,@vitejs/*,rollup}' --binaries --browsers
+```

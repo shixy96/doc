@@ -49,6 +49,8 @@ Object.getOwnPropertyDescriptor()
 
 用构造函数来创建对象时，对象的原型就会自动指向构造函数的 `prototype` 属性。
 
+![js 继承](./js_%20inheritance.png)
+
 ### instanceof
 - 命中 [Symbol.hasInstance]
 - `o instanceof F`，顺着 o 原型链查找，如果能找到 F.prototype，返回 true。
