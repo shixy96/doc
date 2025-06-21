@@ -97,11 +97,15 @@ cssom 存放在 document.styleSheets 中（getComputedStyle() 重复了以上计
 尽可能将动画渲染在单独的图层上，这样只需要重复 compose 的步骤而不用回到 painting 的步骤
 
 ## CORS
+
+“源” 由协议、域名（或 IP 地址）和端口号共同组成，当两个资源的协议、域名、端口号中有任何一个不同时，就属于不同的源。
+
 > 跨源资源共享是一种基于 HTTP 头的机制，允许服务器标识除了它自己以外的其他源，使得浏览器允许这些源加载访问自己的资源。
 
 对那些可能对服务器数据产生副作用的 HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨源请求。简单请求不需要发送 options 预检，但是服务器必须返回 Access-Control-Allow-Origin 响应头。
 
 简单请求：
+
 - GET/POST/HEAD
 - Content-Type 仅限于 text/plain、multipart/form-data、application/x-www-form-urlencoded
 - XMLHttpRequest.upload 对象属性上没有注册任何事件监听器

@@ -30,16 +30,42 @@ ECMAScript 对属性成员有两种格式定义：`数据属性（Data Property�
     - 不允许修改描述符的其他参数（但不包括修改 `value`，以及把 `writable` 设为 false）
   - `[[Value]]`：
   - `[[Writable]]`：
+
+```js
+const obj = Object.create(null)
+Object.defineProperty(obj, 'prop', {
+  configurable: true,
+  enumerable: true,
+  writable: true,
+  value: 123,
+})
+```
+
+
 2. Accessor Property
   - `[[Enumerable]]`
   - `[[Configurable]]`
   - `[[Get]]`：
   - `[[Set]]`：
 
+```js
+const obj = Object.create(null)
+Object.defineProperty(obj, 'prop', {
+  configurable: true,
+  enumerable: true,
+  get() {
+    return 123
+  },
+  set(value) {
+    console.log(value)
+  }
+})
+```
+
 > 直接对象赋值，`[[Enumerable]]`、`[[Configurable]]`、`[[Writable]]`属性值默认 true，`Object.defineProperty()`默认 false
 ```ts
 Object.setPrototypeOf() // => [[SetProtoTypeOf]]
-Object.getPrototypeOf() // => [[SetProtoTypeOf]]，返回对象的 [[ProtoType]] 或者 __proto__（旧版本遗留）
+Object.getPrototypeOf() // => [[GetProtoTypeOf]]，返回对象的 [[ProtoType]] 或者 __proto__（旧版本遗留）
 Object.getOwnPropertyDescriptor()
 
 ```
@@ -120,7 +146,8 @@ Object.getOwnPropertyDescriptors 返回 `[[OwnPropertyKeys]]` 的所有内容的
 ## 创建对象
 如果一个函数对象存在 `[[Construct]]` 的内部方法，则它可以作为构造函数。
 `[[Construct]]` 的大致实现：
-1. 创建一个对象 P，原型链只想 Constructor.prototype
+
+1. 创建一个对象 P，原型链指向 Constructor.prototype
 2. 生成一个上下文，this 指向刚创建的 P，new.target 指向 Constructor
 >  new.target 只能在函数中使用，用来判断当前函数是否是通过 new 来调用的
 3. 执行 Constructor 代码，如果返回一个对象，那么就作为构造函数的结果，否则将 P 作为构造函数的结果
