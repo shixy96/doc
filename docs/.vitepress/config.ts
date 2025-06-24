@@ -52,6 +52,7 @@ export default {
                     },
                   ],
                 },
+                { text: 'react', link: '/frontend/js/react/react' },
                 { text: 'rxjs', link: '/frontend/js/rxjs' },
               ],
             },
