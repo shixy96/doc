@@ -112,3 +112,33 @@ server {
     }
 }
 ```
+
+## 限流配置
+
+```nginx
+limit_req_zone $cookie_Id zone=cookie:100m rate=2r/s;
+limit_req_zone $remote_addr zone=ipsms:100m rate=60r/m;
+limit_req_zone $binary_remote_addr zone=ip_limit_10qpm:100m rate=10r/m;
+limit_req_zone $binary_remote_addr zone=ip_limit_1qps:100m rate=1r/s;
+limit_req_zone $binary_remote_addr zone=ip_limit_10qps:100m rate=10r/s;
+limit_req_zone $uri zone=uri_limit_5qps:100m rate=5r/s;
+limit_req_zone $uri zone=uri_limit_10qps:100m rate=10r/s;
+limit_req_zone $uri zone=uri_limit_30qps:100m rate=30r/s;
+limit_req_zone $uri zone=uri_limit_50qps:100m rate=50r/s;
+limit_req_zone $uri zone=uri_limit_60qps:100m rate=60r/s;
+limit_req_zone $uri zone=uri_limit_80qps:100m rate=80r/s;
+limit_req_zone $uri zone=uri_limit_100qps:100m rate=100r/s;
+limit_req_zone $uri zone=uri_limit_140qps:100m rate=140r/s;
+limit_req_zone $uri zone=uri_limit_180qps:100m rate=180r/s;
+
+location /api/login {
+  limit_req zone=uri_limit_60qps burst=3 nodelay;
+
+  proxy_set_header X-Forwarded-For $http_x_forwarded_for;
+  proxy_set_header X-Real_IP  $remote_addr;
+  proxy_set_header Host $http_host;
+  proxy_set_header trace-id $request_id;
+  proxy_redirect off;
+  proxy_pass http://api/;
+}
+```
