@@ -125,23 +125,12 @@ def calculate_percentage_change(current: float, previous: float) -> tuple[float,
     return (abs(change), direction)
 
 
-def format_comparison(current: float, previous: float) -> str:
-    """格式化环比对比字符串，如 $120/$100 +20%↑"""
-    pct, direction = calculate_percentage_change(current, previous)
-    sign = "+" if direction == "↑" else "-"
-    return f"{sign}{pct:.0f}%{direction}  ${current:.2f}/${previous:.2f}"
-
-
 def calculate_model_percentages(breakdown_list: list) -> list:
     """计算模型金额百分比"""
     total_cost = sum(m.get("cost", 0) for m in breakdown_list)
     if total_cost == 0:
         return breakdown_list
-    result = []
-    for m in breakdown_list:
-        pct = (m.get("cost", 0) / total_cost) * 100 if total_cost > 0 else 0
-        result.append({**m, "percentage": pct})
-    return result
+    return [{**m, "percentage": m.get("cost", 0) / total_cost * 100} for m in breakdown_list]
 
 
 def print_top2_models(breakdowns: list, prefix: str = ""):
@@ -366,7 +355,6 @@ def main():
     today_breakdown = stats["today_breakdown"]
     today_cost = stats["today_cost"]
     last_30 = stats["last_30_days"]
-    total = stats["total"]
     recent_5 = stats["recent_5_days"]
 
     # 计算日均（基于 last 30 days breakdown 的 cost，包含 fallback）
@@ -424,7 +412,8 @@ def main():
         model_name = model_data.get("modelName", "unknown")
         cost = model_data.get("cost", 0)
         pct = model_data.get("percentage", 0)
-        print(f"--{model_name}: ${cost:.2f} ({pct:.0f}%)")
+        tokens = model_data.get("inputTokens", 0) + model_data.get("outputTokens", 0)
+        print(f"--{model_name}: ${cost:.2f}/{format_number(tokens)} ({pct:.0f}%)")
 
 
 if __name__ == "__main__":
